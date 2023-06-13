@@ -3,15 +3,13 @@ import getBuffer from './buffer.js';
 export default class ArrayBufferConverter {
   constructor() {
     this.buffer = getBuffer();
+    this.str = '';
   }
 
   load(buffer) {
-    this.buffer = buffer;
-    /* const bufferView = new Uint16Array(buffer);
-    const bufferViewInner = new Uint16Array(this.buffer);
-    for (let i = 0; i < bufferViewInner.length; i++) {
-      bufferViewInner[i] = bufferView[i];
-    } */
+    const bufferView = new Uint16Array(buffer);
+    this.str = String.fromCharCode(...bufferView);
+    return this.str;
   }
 
   toString() {

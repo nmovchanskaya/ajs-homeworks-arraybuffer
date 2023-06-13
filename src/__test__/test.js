@@ -14,7 +14,6 @@ test('test toString after load buffer', () => {
   for (let i = 0; i < data.length; i++) {
     bufferView[i] = data.charCodeAt(i);
   }
-  buf.load(bufToLoad);
-  const str = buf.toString();
+  const str = buf.load(bufToLoad);
   expect(str).toBe('Hey!');
 });
